@@ -1,13 +1,13 @@
 import { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 
-const Underline = ({ label }) => {
-  const labelRef = useRef(null);
-  const [labelWidth, setLabelWidth] = useState(0);
+const Underline = ({ children }) => {
+  const ref = useRef(null);
+  const [childrenWidth, setChildrenWidth] = useState(0);
 
   useEffect(() => {
-    if (labelRef.current) {
-      setLabelWidth(labelRef.current.offsetWidth);
+    if (ref.current) {
+      setChildrenWidth(ref.current.offsetWidth);
     }
   }, []);
 
@@ -18,14 +18,23 @@ const Underline = ({ label }) => {
       animate="rest"
       style={{ display: 'inline-block' }}
     >
-      <label ref={labelRef} className="cursor-pointer">{label}</label>
-      <svg width={labelWidth} height="5" viewBox={`0 0 ${labelWidth} 5`}>
+      <label 
+        ref={ref} 
+        className="w-min h-min cursor-pointer"
+      >
+        {children}
+      </label>
+      <svg 
+        width={childrenWidth} 
+        height="5" 
+        viewBox={`0 0 ${childrenWidth} 5`}
+        className="stroke-black dark:stroke-darkAccent"
+      >
         <motion.line
-          x1={labelWidth/2}
+          x1={childrenWidth/2}
           y1="5"
           x2={0}
           y2="5"
-          stroke="black"
           strokeWidth={2}
           variants={{
             rest: { pathLength: 0 },
@@ -34,11 +43,10 @@ const Underline = ({ label }) => {
           transition={{ duration: 0.25 }}
         />
         <motion.line
-          x1={labelWidth/2}
+          x1={childrenWidth/2}
           y1="5"
-          x2={labelWidth}
+          x2={childrenWidth}
           y2="5"
-          stroke="black"
           strokeWidth={2}
           variants={{
             rest: { pathLength: 0 },

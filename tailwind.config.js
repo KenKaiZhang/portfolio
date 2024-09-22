@@ -5,6 +5,10 @@ module.exports = {
   ],
   theme: {
     extend: {
+      colors: {
+        darkMain: "#1D1D1D",
+        darkAccent: "#DFDFDF"
+      },
       fontFamily: {
         'inter': ['Inter', 'sans-serif'],
       },
@@ -16,6 +20,10 @@ module.exports = {
         "about-pic": "url('./images/smiski.jpg')",
         "profile-pic": "url('./images/profile.jpg')"
       },
+      letterSpacing: {
+        "wide": "0.5rem",
+        "wider": "2rem"
+      }
     },
   },
   plugins: [

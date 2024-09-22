@@ -1,4 +1,5 @@
 import { useMemo } from "react"
+import { motion } from "framer-motion"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons"
 import Tools from "../../common/Tools"
@@ -47,22 +48,32 @@ const Projects = () => {
     ), [])
     
     return (
-        <div className="relative w-full h-screen">
-            <div className="p-16 hover:text-black/50">
+        <motion.div 
+            className="w-full"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            variants={{
+                visible: { opacity: 1 },
+                hidden: { opacity: 0 }
+            }}
+        >
+            <div className="p-16 hover:text-black/50 dark:hover:text-white/50">
                 {
                     projects.map(({ name, summary, tools, link }) => (
-                        <div className="pb-12 cursor-pointer duration-300 hover:text-black group">
+                        <div className="group pb-12 cursor-pointer duration-300 hover:text-black dark:hover:text-darkAccent">
                             <div className="flex items-center gap-4">
-                                <h1 className="text-[2.25rem]">{name}</h1>
+                                <h1 className="text-4xl">{name}</h1>
                                 {
                                     link && (
                                         <a 
                                             href={link} 
-                                            className="flex justify-center items-center duration-300 opacity-0 group-hover:opacity-100"
+                                            className="flex justify-center items-center opacity-0 duration-300 group-hover:opacity-100"
                                             target="_blank"
                                             rel="noopener noreferrer"
                                         >
-                                            <FontAwesomeIcon className="text-[1.25rem]" icon={faArrowRight} />
+                                            <FontAwesomeIcon className="text-lg" icon={faArrowRight} />
                                         </a>
                                     )
                                 }
@@ -73,7 +84,7 @@ const Projects = () => {
                     ))
                 }
             </div>
-        </div>
+        </motion.div>
     )
 
 }

@@ -8,3 +8,7 @@ body {
   font-family: 'Inter', sans-serif;
   font-weight: 300;
 }
+
+body[class~="dark"] {
+  background-color: #1D1D1D
+}

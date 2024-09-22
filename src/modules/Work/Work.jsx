@@ -26,12 +26,12 @@ const Work = () => {
     }
 
     return (
-        <div className="relative w-full h-screen">
+        <div className="w-full overflow-hidden">
             {
                 Object.keys(work).map((year) => (
-                    <div key={year} className="relative p-16 min-h-[200px] z-20">
+                    <div key={year} className="relative p-16 min-h-[200px]">
                         <motion.div 
-                            className="absolute -bottom-10 -right-10 font-bold text-gray-100 text-[8em] tracking-[0.25em]"
+                            className="absolute m-0 -bottom-0 -right-10 font-bold  text-[8rem] tracking-wider text-black/5 dark:text-white/5"
                             initial="hidden"
                             whileInView="visible"
                             viewport={{ once: true }}
@@ -45,7 +45,7 @@ const Work = () => {
                         </motion.div>
                         
                         <motion.div 
-                            className="max-w-[800px] relative z-30"
+                            className="max-w-[800px]"
                             initial="hidden"
                             whileInView="visible"
                             viewport={{ once: true }}
@@ -57,11 +57,11 @@ const Work = () => {
                         >
                             {
                                 work[year].map(({ position, company, summary, date, tools }) => (
-                                    <div>
-                                        <p className="text-[1.75em]">{position}</p>
+                                    <div className="flex flex-col gap-1">
+                                        <p className="text-3xl">{position}</p>
                                         <i className="font-bold">{company}</i>
-                                        <p className="text-[1em]">{`${date[0]} - ${date[1]}`}</p>
-                                        <p className="mt-4">{summary}</p>
+                                        <p>{`${date[0]} - ${date[1]}`}</p>
+                                        <p>{summary}</p>
                                         <Tools tools={tools} />
                                     </div>
                                 ))
