@@ -30,7 +30,7 @@ const Tools = ({ tools, visible=true }) => {
 
     return (
         <motion.div
-            className="my-4 flex flex-wrap gap-2"
+            className="flex flex-wrap gap-2"
             variants={toolsVariants}
             initial="hidden"
             animate={visible ? "visible" : ""}
@@ -38,13 +38,13 @@ const Tools = ({ tools, visible=true }) => {
             {
                 tools.map((tool, i) => (
                     <motion.div key={i} variants={toolVariants}>
-                        <div className="p-1 pr-4 flex items-center gap-2 border-2 border-gray-200 rounded-sm backdrop-blur-md dark:border-white/25">
+                        <div className="p-1 pr-4 flex items-center gap-2 border-2 border-gray-300 rounded-sm backdrop-blur-md dark:border-white/25">
                             <img 
-                                className="p-1 h-[35px] border-2 border-inherit dark:bg-white/15"
+                                className="p-1 h-[30px] border-2 border-inherit dark:bg-white/15"
                                 src={`images/icons/${tool.replace(/\s+/g, '').toLowerCase()}.png`}
                                 alt=""
                             />
-                            <p>{tool}</p>
+                            <p className="text-xs">{tool}</p>
                         </div>
                     </motion.div>
                 ))

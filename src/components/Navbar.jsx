@@ -8,8 +8,8 @@ const Navbar = ({ visible, toggle }) => {
     const location = useLocation();
 
     const pages = [
+        { label: "HOME", value: ""},
         { label: "ABOUT", value: "about" }, 
-        { label: "WORK", value: "work" }, 
         { label: "PROJECTS", value: "projects" }, 
     ]
 
@@ -36,7 +36,7 @@ const Navbar = ({ visible, toggle }) => {
     closed: {
         x: 50,
         opacity: 0,
-        transition: { x: { stiffness: 1000 } }
+        transition: { x: { stiffness: 1000 }}
     }
     }
     
@@ -69,7 +69,7 @@ const Navbar = ({ visible, toggle }) => {
                 />
                 </svg>
             </button>
-            <div className={`relative pt-24 h-screen shadow-left-md duration-500 ${rightPanelW}`}>                
+            <div className={`relative pt-24 h-screen shadow-left-md duration-300 ${rightPanelW}`}>                
                 <motion.ul 
                     className="absolute top-24 left-8 flex flex-col gap-12 tracking-wide"
                     variants={menuVariants}

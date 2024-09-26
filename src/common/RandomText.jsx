@@ -15,7 +15,7 @@ const RandomText = ({ text }) => {
                     const nextIndex = prevIndex + 1;
                     const otherChars = Array.from(
                         { length: text.length - nextIndex },
-                        () => letters[Math.floor(Math.random() * 26)]
+                        (i) => text[i] === " " ? " " : letters[Math.floor(Math.random() * 26)]
                     ).join("");
                     setResultText(text.substring(0, nextIndex) + otherChars);
                     return nextIndex;
