@@ -9,6 +9,6 @@ body {
   font-weight: 300;
 }
 
-body[class~="dark"] {
+body {
   background-color: #1D1D1D
 }

@@ -1,11 +1,10 @@
-import { motion, useCycle } from "framer-motion"
+import { motion } from "framer-motion"
 import RandomText from "../../common/RandomText"
 import Underline from "../../common/Underline"
 import { useState, useEffect } from "react"
 
 const Landing = () => {
 
-    const [isDark, toggleDark] = useCycle(false, true)
     const [spotIndex, setSpotIndex] = useState(Math.floor(Math.random() * 3))
 
     const spotImages = ["tower", "chinatown", "typer"]
@@ -17,18 +16,13 @@ const Landing = () => {
         return () => clearInterval(intervalId)
     }, [spotImages.length])
 
-    const handleToggleDark = () => {
-        toggleDark()
-        document.documentElement.classList.toggle("dark")
-    }
-
     return (
-        <div key="landing-page" className="relative w-screen h-screen overflow-hidden">
-            <motion.div
-                className="absolute z-40 bottom-0 w-screen bg-white"
+        <div key="landing-page" className="relative w-screen h-screen overflow-hidden bg-darkMain">
+            {/* <motion.div
+                className="absolute z-30 bottom-0 w-screen bg-darkMain shadow-top"
                 initial={{ height: "100vh" }}
-                animate={{ height: 0, transition: { duration: 1 }}}
-            />
+                animate={{ height: 0, display: "none", transition: { duration: 1 }}}
+            /> */}
             <motion.div
                 className="w-full h-full flex"
                 initial={{ scale: 0.95, opacity: 0 }}
@@ -51,11 +45,6 @@ const Landing = () => {
                         <a href="mailto:ckzhang2674@gmail.com">
                             <Underline><RandomText text="REACH OUT" /></Underline>
                         </a>
-                        <div onClick={handleToggleDark}>
-                            <Underline>
-                                <RandomText text={isDark ? "LIGHT" : "DARK"} />
-                            </Underline>
-                        </div>
                     </div>
                 </div>
                 <div

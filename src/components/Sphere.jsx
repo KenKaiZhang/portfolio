@@ -5,6 +5,7 @@ import * as THREE from 'three';
 const Sphere = () => {
     const radius = 6;
     const sphereRef = useRef(null);
+    const currentColor = getComputedStyle(document.documentElement).getPropertyValue('--text-color').trim();
 
     useFrame(() => {
         if (!sphereRef.current) return;
@@ -48,7 +49,7 @@ const Sphere = () => {
     return (
         <points>
             <sphereGeometry args={[3, 100, 100]} ref={sphereRef} />
-            <pointsMaterial color="white" size={0.015} />
+            <pointsMaterial color={`rgb(${currentColor})`} size={0.015} />
         </points>
     );
 };

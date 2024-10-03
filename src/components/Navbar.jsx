@@ -20,24 +20,24 @@ const Navbar = ({ visible, toggle }) => {
     ), [visible])
     
     const menuVariants = {
-    open: {
-        transition: { staggerChildren: 0.08, delayChildren: 0.2 }
-    },
-    closed: {
-        transition: { staggerChildren: 0.05, staggerDirection: -1 }
-    }
+        open: {
+            transition: { staggerChildren: 0.08, delayChildren: 0.2 }
+        },
+        closed: {
+            transition: { staggerChildren: 0.05, staggerDirection: -1 }
+        }
     }
     const menuItemVariants = {
-    open: {
-        x: 0,
-        opacity: 1,
-        transition: { x: { stiffnees: 1000, velocity: -100 } }
-    },
-    closed: {
-        x: 50,
-        opacity: 0,
-        transition: { x: { stiffness: 1000 }}
-    }
+        open: {
+            x: 0,
+            opacity: 1,
+            transition: { x: { stiffnees: 1000, velocity: -100 } }
+        },
+        closed: {
+            x: 50,
+            opacity: 0,
+            transition: { x: { stiffness: 1000 }}
+        }
     }
     
     return (
@@ -87,6 +87,19 @@ const Navbar = ({ visible, toggle }) => {
                             </Link>
                         </motion.li>   
                     ))}
+                    <div className="h-[1px] w-[80%] bg-darkAccent opacity-25" />
+                    <div className="flex flex-col gap-4 font-light tracking-wide">
+                        <motion.li variants={menuItemVariants}>
+                            <a href="/documents/chen_kai_zhang_resume.pdf" download>
+                                <Underline><p>RESUME</p></Underline>
+                            </a>
+                        </motion.li>
+                        <motion.li variants={menuItemVariants}>
+                            <a href="mailto:ckzhang2674@gmail.com">
+                                <Underline><p>REACH OUT</p></Underline>
+                            </a>
+                        </motion.li>
+                    </div>
                     <motion.li key={5} variants={menuItemVariants}>
                         <Socials />
                     </motion.li>

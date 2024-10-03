@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 
-const AnimatedLogo = ({ setLoading }) => {
+const AnimatedLogo = ({ setLoading, onClick }) => {
 
   const draw = {
     hidden: { pathLength: 0, opacity: 0 },
@@ -15,11 +15,18 @@ const AnimatedLogo = ({ setLoading }) => {
         },
       };
     },
-    exit: { opacity: 0 },
   };
 
   return (
-    <motion.svg w="45" h="45" viewBox="0 0 600 600" fill="none" initial="hidden" animate="visible" onAnimationComplete={() => setLoading(false)}>
+    <motion.svg 
+      className="w-full h-full max-w-[100px] max-h-[100px]"
+      viewBox="0 0 600 600" 
+      fill="none" 
+      initial="hidden" 
+      animate="visible" 
+      onAnimationComplete={() => setLoading(false)} 
+      onClick={onClick}
+    >
       <motion.path d="M172 131L280.671 97" className="stroke-black dark:stroke-darkAccent" strokeWidth="15" strokeLinecap="round" variants={draw} custom={0} />
       <motion.path d="M281 97 V177" className="stroke-black dark:stroke-darkAccent" strokeWidth="15" strokeLinecap="round" variants={draw} custom={1} />
       <motion.path d="M280.671 177L172 211" className="stroke-black dark:stroke-darkAccent" strokeWidth="15" variants={draw} custom={2} />

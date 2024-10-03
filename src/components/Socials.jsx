@@ -21,7 +21,7 @@ const Socials = () => {
                     href={href} 
                     target="_blank"
                     rel="noreferrer"
-                    className="pr-4 duration-300 hover:text-black dark:hover:text-white"
+                    className="pr-4 duration-300 hover:text-custom"
                 >
                     <FontAwesomeIcon icon={icon} />
                 </a>

@@ -6,6 +6,12 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        custom: ({ opacityValue }) => {
+          if (opacityValue !== undefined) {
+            return `rgba(var(--text-color, 223, 223, 223), ${opacityValue})`;
+          }
+          return `rgb(var(--text-color, 223, 223, 223))`;
+        },
         darkMain: "#1D1D1D",
         darkAccent: "#DFDFDF"
       },
@@ -14,7 +20,8 @@ module.exports = {
       },
       boxShadow: {
         "right-md": "4px 0 4px #0000001D",
-        "left-md": "-4px 0 4px #0000001D"
+        "left-md": "-4px 0 4px #0000001D",
+        "top": "0px -5px 10px 10px #0000004D"
       },
       backgroundImage: {
         "about-pic": "url('./images/smiski.jpg')",
