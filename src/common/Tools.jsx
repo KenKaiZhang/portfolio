@@ -38,9 +38,9 @@ const Tools = ({ tools, visible=true }) => {
             {
                 tools.map((tool, i) => (
                     <motion.div key={i} variants={toolVariants}>
-                        <div className="p-1 pr-4 flex items-center gap-2 border-2 border-gray-300 rounded-sm backdrop-blur-md dark:border-white/25">
+                        <div className="p-1 pr-4 flex items-center gap-2 border-2 border-gray-400 rounded-sm backdrop-blur-md">
                             <img 
-                                className="p-1 h-[30px] border-2 border-inherit dark:bg-white/15"
+                                className="p-1 h-[30px] border-2 border-inherit bg-custom/15"
                                 src={`images/icons/${tool.replace(/\s+/g, '').toLowerCase()}.png`}
                                 alt=""
                             />

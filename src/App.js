@@ -1,4 +1,4 @@
-import { AnimatePresence, easeIn, motion, useCycle } from "framer-motion";
+import { AnimatePresence, motion, useCycle } from "framer-motion";
 import { Outlet } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import AnimatedLogo from "./components/AnimatedLogo";
@@ -45,6 +45,7 @@ const App = () => {
   }
 
   const themeOptions = [
+    "245,245,245",
     "239,68,68",    // #EF4444
     "237,137,54",   // #ED8936
     "246,224,94",   // #F6E05E
@@ -60,7 +61,7 @@ const App = () => {
   } 
 
   return (
-    <div className="relative w-screen h-screen bg-darkMain text-darkAccent">
+    <div className="relative w-screen h-screen bg-darkMain text-darkAccent overflow-x-hidden">
         <motion.div
           className="fixed z-50 w-full h-full flex flex-col justify-center items-center"
           animate={!loading && loadingAnimate.logo}

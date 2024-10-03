@@ -10,7 +10,6 @@ const Navbar = ({ visible, toggle }) => {
     const pages = [
         { label: "HOME", value: ""},
         { label: "ABOUT", value: "about" }, 
-        { label: "PROJECTS", value: "projects" }, 
     ]
 
     const rightPanelW = useMemo(() => (
@@ -88,7 +87,7 @@ const Navbar = ({ visible, toggle }) => {
                         </motion.li>   
                     ))}
                     <div className="h-[1px] w-[80%] bg-darkAccent opacity-25" />
-                    <div className="flex flex-col gap-4 font-light tracking-wide">
+                    <div className="flex flex-col gap-8 font-light tracking-wide">
                         <motion.li variants={menuItemVariants}>
                             <a href="/documents/chen_kai_zhang_resume.pdf" download>
                                 <Underline><p>RESUME</p></Underline>

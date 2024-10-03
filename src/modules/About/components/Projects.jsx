@@ -2,6 +2,8 @@ import { motion } from "framer-motion"
 import Underline from "../../../common/Underline";
 import { useMemo, useState } from "react";
 import Tools from "../../../common/Tools";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSquareArrowUpRight } from "@fortawesome/free-solid-svg-icons";
 
 const Projects = () => {
 
@@ -75,14 +77,14 @@ const Projects = () => {
 
     return (
         <motion.section
-            id="section-3"
-            className="relative w-full flex flex-col items-center"
+            id="section4"
+            className="relative w-full h-screen flex flex-col items-center"
         >
             <nav className="p-4 flex gap-4 text-xl font-normal tracking-[0.25rem]">
                 {options.map((option) => (
                     <div 
                         key={option}
-                        className={`p-2 w-[150px] flex justify-center items-center duration-300 ${option === selectedTab && "text-custom"}`}
+                        className={`p-2 w-[100px] flex justify-center items-center duration-300 ${option === selectedTab && "text-custom font-bold"}`}
                         onClick={() => setSelectedTab(option)}
                     >
                         <Underline><p>{option}</p></Underline>
@@ -90,7 +92,7 @@ const Projects = () => {
                 ))}
             </nav>
             <div key={selectedTab} className="w-[70%]">
-                <div className="p-4 flex flex-col gap-4 bg-custom/15 rounded-sm">
+                <div className="px-4 py-8 flex flex-col gap-4 bg-custom/15 rounded-sm">
                     <h1 className="text-sm font-bold text-custom">Skills</h1>
                     {["Languages", "Frameworks", "Tools"].map((sub) => {
                         return (
@@ -103,11 +105,30 @@ const Projects = () => {
                         )
                     })}
                 </div>
-                <h1 className="p-4 text-sm font-bold text-custom">Projects</h1>
-                <div>
-                    {selectedInfo["projects"].map(({name, summary, tools}, i) => (
-                        <div key={i}>
-                            {name}
+                <h1 className="mt-4 p-4 text-sm font-bold text-custom">Projects</h1>
+                <div className="px-4 flex flex-col gap-4">
+                    {selectedInfo["projects"].map(({ name, summary, tools, link }, i) => (
+                        <div 
+                            key={i}
+                            className="group h-[150px] flex flex-col gap-2"
+                        >
+                            <div className="h-[45px] flex gap-8 items-center">
+                                <h1 className="text-3xl font-normal duration-300 group-hover:text-custom">{name}</h1>
+                                {link && (
+                                        <a 
+                                            href={link} 
+                                            className="p-0 flex w-0 items-center gap-2 text-black font-normal rounded-sm bg-custom overflow-hidden duration-300 group-hover:w-[100px] group-hover:p-2 hover:bg-custom/50"
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                        >
+                                            <p>Explore</p>
+                                            <FontAwesomeIcon className="text-lg" icon={faSquareArrowUpRight} />
+                                        </a>
+                                    )
+                                }
+                            </div>
+                            <p>{summary}</p>
+                            <Tools tools={tools}/>
                         </div>
                     ))}
                 </div>

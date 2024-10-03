@@ -19,7 +19,7 @@ const AnimatedLogo = ({ setLoading, onClick }) => {
 
   return (
     <motion.svg 
-      className="w-full h-full max-w-[100px] max-h-[100px]"
+      className="w-full h-full max-w-[100px] max-h-[100px] bg-darkMain rounded-full"
       viewBox="0 0 600 600" 
       fill="none" 
       initial="hidden" 

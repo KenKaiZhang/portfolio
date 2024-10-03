@@ -18,11 +18,6 @@ const Landing = () => {
 
     return (
         <div key="landing-page" className="relative w-screen h-screen overflow-hidden bg-darkMain">
-            {/* <motion.div
-                className="absolute z-30 bottom-0 w-screen bg-darkMain shadow-top"
-                initial={{ height: "100vh" }}
-                animate={{ height: 0, display: "none", transition: { duration: 1 }}}
-            /> */}
             <motion.div
                 className="w-full h-full flex"
                 initial={{ scale: 0.95, opacity: 0 }}
@@ -32,7 +27,7 @@ const Landing = () => {
                     id="landing-left-panel"
                     className="relative pl-8 flex flex-1 flex-col justify-center shadow-lg"
                 >
-                    <div id="landing-name" className="text-[5rem] font-normal tracking-wide leading-[1.25em]">
+                    <div id="landing-name" className="text-[5rem] font-normal tracking-wide leading-[1.25em] text-custom">
                         <RandomText text="CHEN" />
                         <RandomText text="KAI" />
                         <RandomText text="ZHANG" />
@@ -61,7 +56,7 @@ const Landing = () => {
                         }`} 
                         />
                     ))}
-                    <div className="absolute p-2 bottom-4 flex gap-2 bg-black/50 rounded-2xl cursor-pointer opacity-25 duration-300 hover:opacity-100">
+                    <div className="absolute p-2 bottom-8 flex gap-2 bg-black/50 rounded-2xl cursor-pointer opacity-25 duration-300 hover:opacity-100">
                         {spotImages.map((_, i) => (
                             <div 
                                 key={i}

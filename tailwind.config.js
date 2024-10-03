@@ -12,7 +12,7 @@ module.exports = {
           }
           return `rgb(var(--text-color, 223, 223, 223))`;
         },
-        darkMain: "#1D1D1D",
+        darkMain: "#1F1F1F",
         darkAccent: "#DFDFDF"
       },
       fontFamily: {
@@ -35,16 +35,15 @@ module.exports = {
   },
   plugins: [
     function({ addUtilities }) {
-      const newUtilities = {
+      addUtilities({
         '.no-scrollbar': {
           '-ms-overflow-style': 'none',
           'scrollbar-width': 'none',
-          '&::-webkit-scrollbar': {
-            display: 'none',
-          },
         },
-      };
-      addUtilities(newUtilities, ['responsive']);
+        '.no-scrollbar::-webkit-scrollbar': {
+          'display': 'none',
+        },
+      })
     },
   ],
 }
