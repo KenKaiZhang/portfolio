@@ -1,1 +1,1 @@
-The src code behind my current [web portfolio](chenkaizhang.dev) :smile:.
+The src code behind my current [web portfolio](https://chenkaizhang.dev/) :smile:.
